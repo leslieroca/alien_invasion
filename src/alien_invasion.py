@@ -8,11 +8,14 @@ def run_game():
     # Initialize pygame, settings and screen object.
     pygame.init()
     ai_settings = Settings()
-    screen = pygame.display.set_mode((ai.settings.screen_width, ai_settings.screen_height))
+    screen = pygame.display.set_mode(ai_settings.screen_mode)
     pygame.display.set_caption("Alien Invasion")
+    clock = pygame.time.Clock()
 
     # Start the main loop for the game.
     while True:
+        # Sets redraw at 60 FPS
+        clock.tick(60)
 
         # Watch for keyboard and mouse events.
         for event in pygame.event.get():
