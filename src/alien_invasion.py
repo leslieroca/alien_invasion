@@ -13,7 +13,7 @@ def run_game():
     clock = pygame.time.Clock()
 
     # Make a ship
-    ship = Ship(screen)
+    ship = Ship(ai_settings, screen)
     
 
     # Start the main loop for the game.
