@@ -15,6 +15,10 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_down = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
+    elif event.keey == pygame.K_q:
+        pygame.display.quit()
+        pygame.quit()
+        sys.exit()
 
 
 def fire_bullet(ai_settings, screen, ship, bullets):
