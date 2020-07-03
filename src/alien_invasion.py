@@ -2,6 +2,7 @@ import pygame
 from pygame.sprite import Group
 from settings import Settings
 from game_stats import GameStats
+from button import Button
 from ship import Ship
 from alien import Alien
 import game_functios as gf
@@ -16,6 +17,9 @@ def run_game():
     screen = pygame.display.set_mode(ai_settings.screen_mode)
     pygame.display.set_caption("Alien Invasion")
     clock = pygame.time.Clock()
+
+    # Make the Play button.
+    play_button = Button(ai_settings, screen, "Play")
 
     # Create an istance to store game statistics.
     stats = GameStats(ai_settings)
@@ -32,15 +36,15 @@ def run_game():
     while True:
         # Sets redraw at 60 FPS
         clock.tick(60)
-        
-        gf.check_events(ai_settings, screen, ship, bullets)
+
+        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
 
         if stats.game_active:
             ship.update()
             gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
         
-        gf.update_screen(ai_settings, screen, ship, aliens, bullets)
+        gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button)
 
         
 run_game()
