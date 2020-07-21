@@ -39,7 +39,7 @@ def run_game():
         # Sets redraw at 60 FPS
         clock.tick(60)
 
-        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
+        gf.check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bullets)
 
         if stats.game_active:
             ship.update()
