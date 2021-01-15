@@ -18,7 +18,7 @@ def check_keydown_events(event, ai_settings, screen, ship, bullets):
         ship.moving_down = True
     elif event.key == pygame.K_SPACE:
         fire_bullet(ai_settings, screen, ship, bullets)
-    elif event.keey == pygame.K_q:
+    elif event.key == pygame.K_q:
         pygame.display.quit()
         pygame.quit()
         sys.exit()
@@ -200,14 +200,14 @@ def change_fleet_direction(ai_settings, aliens):
     ai_settings.fleet_direction *= -1
 
 
-def ship_hit(aai_settings, screen, stats, sb, ship, aliens, bullets):
+def ship_hit(ai_settings, screen, stats, sb, ship, aliens, bullets):
     """Respond to ship being hit by alien."""
     if stats.ships_left > 0:
         # Decrement ships_left.
         stats.ships_left -= 1
 
         # Update scoreboard.
-        sb.prep_ship()
+        sb.prep_ships()
 
         # Empty the list of aliens and bullets.
         aliens.empty()
